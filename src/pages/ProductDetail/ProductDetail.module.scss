@@ -1,0 +1,102 @@
+// Container utama untuk seluruh halaman
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f7f7; // Warna latar belakang soft
+}
+
+// Heading utama halaman
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+// Layout untuk detail produk
+.productDetail {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+// Gambar produk dengan lebar yang besar
+.productDetail img {
+  width: 100%;
+  max-width: 400px; // Batas maksimal lebar gambar
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+// Bagian deskripsi dan informasi produk
+.productInfo {
+  flex: 1;
+  max-width: 600px;
+}
+
+// Nama produk
+.productInfo h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+// Deskripsi produk
+.productInfo p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+// Harga produk
+.price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #e60000; // Warna merah cerah seperti Tokopedia
+  margin-bottom: 20px;
+}
+
+// Kategori produk
+.category {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+// Mengatur tampilan error dan loading
+.error,
+.loading {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #e60000; // Warna merah untuk menandakan error
+}
+
+// Loader animasi untuk loading
+.loading {
+  animation: loadingAnimation 1s infinite;
+}
+
+@keyframes loadingAnimation {
+  0% {
+    color: #e60000;
+  }
+  50% {
+    color: #333;
+  }
+  100% {
+    color: #e60000;
+  }
+}

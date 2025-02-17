@@ -1,0 +1,21 @@
+@use '../functions' as *;
+@use '../variables' as *;
+@use 'sass:map';
+
+//prettier-ignore
+$text-presets: (
+  'h1-spacemono-bold': ('font-family': "Space Mono", 'font-weight': 700, 'font-size': rem-calc(30), 'line-height': auto, 'letter-spacing': rem-calc(10)),
+  'p-spacemono-bold-32': ('font-family': "Space Mono", 'font-weight': 700, 'font-size': rem-calc(32), 'line-height': auto, 'letter-spacing': -0.67px),
+  'p-spacemono-bold-24': ('font-family': "Space Mono", 'font-weight': 700, 'font-size': rem-calc(24), 'line-height': auto, 'letter-spacing': 0px),
+  'p-spacemono-bold-16': ('font-family': "Space Mono", 'font-weight': 700, 'font-size': rem-calc(16), 'line-height': auto, 'letter-spacing': 0px),
+  'p-spacemono-bold-13': ('font-family': "Space Mono", 'font-weight': 700, 'font-size': rem-calc(13), 'line-height': auto, 'letter-spacing': 0px),
+);
+
+@mixin typography($text-preset) {
+  $preset: map.get($text-presets, $text-preset);
+  font-family: map.get($preset, 'font-family');
+  font-weight: map.get($preset, 'font-weight');
+  font-size: map.get($preset, 'font-size');
+  line-height: map.get($preset, 'line-height');
+  letter-spacing: map.get($preset, 'letter-spacing');
+}

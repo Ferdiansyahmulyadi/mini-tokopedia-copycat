@@ -1,0 +1,11 @@
+// $purple-shadow: 0px 4x 10px rgba(128, 0, 128, 0.2);
+// $blue-shadow: 0px 4x 10px rgba(0, 0, 255, 0.2);
+$color: (
+  'purple-shadow': 0 4px 20px 0 #8746eb,
+  // Glow effect
+  'blue-shadow': 0px 4px 10px rgba(0, 0, 255, 0.2),
+);
+
+@mixin shadow($shadow-name) {
+  box-shadow: map-get($color, $shadow-name);
+}

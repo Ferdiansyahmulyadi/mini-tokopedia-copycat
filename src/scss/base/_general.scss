@@ -1,0 +1,18 @@
+//dependencies
+@use '../variables' as *;
+@use '../functions' as *;
+@use '../mixins' as *;
+
+:root {
+  font-family: $font-primary;
+}
+
+.container {
+  max-width: rem-calc(1216);
+  margin: 0 auto;
+  padding: 0 rem-calc(20);
+
+  @include md {
+    padding: 0 rem-calc(32);
+  }
+}

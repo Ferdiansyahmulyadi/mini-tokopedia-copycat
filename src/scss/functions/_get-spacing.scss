@@ -1,0 +1,6 @@
+@use '../variables' as *;
+@use 'sass:map';
+
+@function get-spacing($name) {
+  @return map-get($spacing, $name);
+}
