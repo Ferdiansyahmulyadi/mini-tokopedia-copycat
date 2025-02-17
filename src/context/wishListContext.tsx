@@ -106,7 +106,13 @@ const WishListContext = createContext<WishListContextProps | undefined>(
   undefined
 );
 
-export const WishListProvider: React.FC = ({ children }) => {
+interface WishListProviderProps {
+  children: React.ReactNode;
+}
+
+export const WishListProvider: React.FC<WishListProviderProps> = ({
+  children,
+}) => {
   const [state, dispatch] = useReducer(wishListReducer, { items: [] });
 
   const addToWishList = (product: Product) => {
