@@ -18,7 +18,7 @@ interface WishListState {
 }
 
 type WishListAction =
-  | { type: 'ADD_TO_WISHLIST'; payload: product }
+  | { type: 'ADD_TO_WISHLIST'; payload: Product }
   | { type: 'REMOVE_FROM_WISHLIST'; payload: number }
   | { type: 'CLEAR_WISHLIST' }
   | { type: 'INCREASE_QUANTITY'; payload: number }
