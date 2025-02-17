@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { useCart } from '../../context/cartContext'; // Get data from CartContext
+import { useWishList } from '../../context/wishListContext'; // Get data from WishListContext
 import { useSearch } from '../../context/searchContext'; // Get data from SearchContext
 import { useNavigate } from 'react-router-dom'; // For navigation to other pages
 import styles from './Navbar.module.scss';
-import TokopediaHenry from '@/assets/tokopedia.png'; // Logo used in the navbar
+import MiniTokopedia from '@/assets/tokopedia.png'; // Logo used in the navbar
 
 export const Navbar: React.FC = () => {
   // Get cart data and functions from CartContext
   const { cart } = useCart();
+  // Get wishlist data and functions from WishListContext
+  const { wishList } = useWishList();
   // Get searchQuery and setSearchQuery function from SearchContext
   const { searchQuery, setSearchQuery } = useSearch();
   const [isCartOpen, setIsCartOpen] = useState(false); // State to manage whether the cart dropdown is open or not
@@ -22,6 +25,15 @@ export const Navbar: React.FC = () => {
       navigate('/checkout'); // Navigate to the checkout page if there are items in the cart
     } else {
       alert('Your cart is empty!'); // Show alert if the cart is empty
+    }
+  };
+
+  // Function to navigate to wishlist page
+  const goToWishlist = () => {
+    if (wishList.length > 0) {
+      navigate('/wishlist'); // Navigate to the wishlist page if there are items in the wishlist
+    } else {
+      alert('Your wishlist is empty!'); // Show alert if the wishlist is empty
     }
   };
 
@@ -41,8 +53,8 @@ export const Navbar: React.FC = () => {
       <div className={styles.container}>
         {/* Logo and website name */}
         <div className={styles.logo}>
-          <img src={TokopediaHenry} alt='CyberShop' />
-          <p>HENRYPEDIA</p>
+          <img src={MiniTokopedia} alt='MiniTokopedia' />
+          <p>MINI TOKOPEDIA</p>
         </div>
 
         {/* Search bar */}
@@ -73,6 +85,12 @@ export const Navbar: React.FC = () => {
           <div className={styles.cartIcon} onClick={goToCheckout}>
             🛒
             <span className={styles.cartCount}>{cart.length}</span>{' '}
+            {/* Display the number of items in the cart */}
+          </div>
+          {/* Wishlist icon */}
+          <div className={styles.wishListIcon} onClick={goToWishlist}>
+            ❤️
+            <span className={styles.wishListCount}>{wishList.length}</span>{' '}
             {/* Display the number of items in the cart */}
           </div>
         </div>

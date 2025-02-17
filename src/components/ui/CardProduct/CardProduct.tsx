@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link untuk navigasi
+import { Link } from 'react-router-dom'; // Import Link for navigation
 import styles from './CardProduct.module.scss';
 
 interface ProductCardProps {
@@ -10,6 +10,7 @@ interface ProductCardProps {
   description: string;
   image: string;
   onAddToCart: (id: number) => void;
+  onAddToWishList: (id: number) => void;
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({
@@ -20,6 +21,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   description,
   image,
   onAddToCart,
+  onAddToWishList,
 }) => {
   return (
     <div className={styles.card}>
@@ -39,6 +41,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         onClick={() => onAddToCart(id)}
       >
         Add to Cart
+      </button>
+
+      {/* Tombol untuk menambah produk ke wishlist */}
+      <button
+        className={styles.addToWishListButton}
+        onClick={() => onAddToWishList(id)}
+      >
+        Add to Wishlist
       </button>
     </div>
   );
