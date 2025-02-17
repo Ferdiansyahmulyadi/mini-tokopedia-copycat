@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useWishList } from '@/Context/wishListContext';
+import { useWishList } from '@/context/wishListContext';
 import CheckoutForm from '@/components/CheckoutForm/CheckoutForm';
 import styles from './Wishlist.module.scss';
 
