@@ -20,7 +20,7 @@ import queryClient from '../queryClient'; // Query client configuration
 // Import additional pages
 import PageWithPagination from '@/pages/PageWithPagination/PageWithPagination'; // Page with pagination feature
 import ProductDetail from '@/pages/ProductDetail/ProductDetail'; // Product detail page based on ID
-import { MyStore } from '@/pages/MyStore/MyStore';
+// import { MyStore } from '@/pages/MyStore/MyStore';
 import { WishListProvider } from '@/context/wishListContext';
 import { WishListPage } from '@/pages/WishList/Wishlist';
 
@@ -55,7 +55,7 @@ export const Home: React.FC = () => {
                 {/* If the user opens "/products/:id", display the product detail page based on ID */}
                 <Route path='/products/:id' element={<ProductDetail />} />
                 {/* My Store page */}
-                <Route path='/my-store' element={<MyStore />} />
+                {/* <Route path='/my-store' element={<MyStore />} /> */}
               </Routes>
             </Router>
           </SearchProvider>

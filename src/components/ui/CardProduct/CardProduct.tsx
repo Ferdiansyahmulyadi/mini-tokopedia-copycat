@@ -7,7 +7,7 @@ interface ProductCardProps {
   title: string;
   price: string;
   category: string;
-  description: string;
+  description?: string;
   image: string;
   onAddToCart: (id: number) => void;
   onAddToWishList: (id: number) => void;
@@ -18,7 +18,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   title,
   price,
   category,
-  description,
   image,
   onAddToCart,
   onAddToWishList,

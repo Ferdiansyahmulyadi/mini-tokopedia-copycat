@@ -77,9 +77,9 @@ export const Navbar: React.FC = () => {
           <a href='#categories' className={styles.menuItem}>
             Categories
           </a>
-          <a href='/my-store' className={styles.menuItem}>
+          {/* <a href='/my-store' className={styles.menuItem}>
             MyStore
-          </a>
+          </a> */}
 
           {/* Shopping cart icon */}
           <div className={styles.cartIcon} onClick={goToCheckout}>
