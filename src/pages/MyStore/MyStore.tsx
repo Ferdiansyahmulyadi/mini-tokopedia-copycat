@@ -55,9 +55,10 @@ export const MyStore: React.FC = () => {
   const handleEditProduct = async () => {
     if (!editingProduct) return;
     try {
-      await updateProduct({
-        id: editingProduct.id,
-        updatedProduct: newProduct,
+      await updateProduct(editingProduct.id, {
+        title: newProduct.title,
+        price: Number(newProduct.price),
+        image: newProduct.image,
       });
       toast.success('Product updated successfully!');
       setEditingProduct(null);

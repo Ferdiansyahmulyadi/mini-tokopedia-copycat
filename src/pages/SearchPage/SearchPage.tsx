@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useSearch } from '@/context/searchContext'; // Get searchQuery from SearchContext
 import { ProductCard } from '@/components/ui/CardProduct/CardProduct'; // Component to display each product
 import { useCart } from '@/context/cartContext'; // Get addToCart function to add products to the cart
+import { useWishList } from '@/context/wishListContext'; // Get addToWishList function to add products to the wishlist
 import { useLocation } from 'react-router-dom'; // Get URL information to get the search query
 import styles from './SearchPage.module.scss'; // Import styling file for the search page
 
@@ -19,7 +20,8 @@ interface Product {
 // Main component for the search page
 export const SearchPage: React.FC = () => {
   // Store fetched product data
-  const { cart, addToCart } = useCart(); // Get cart data and function to add products to the cart
+  const { addToCart } = useCart(); // Get cart data and function to add products to the cart
+  const { addToWishList } = useWishList(); // Get wishlist data and function to add products to the wishlist
   const [products, setProducts] = useState<Product[]>([]); // State to store products fetched from the API
   const location = useLocation(); // Get current URL information
   const { searchQuery } = useSearch(); // Get search query from SearchContext
@@ -47,7 +49,8 @@ export const SearchPage: React.FC = () => {
     <div className={styles.searchPage}>
       <header className={styles.header}>
         <h1>Search Results</h1> {/* Page title */}
-        <p>Showing results for: "{query}"</p> {/* Display the search keyword */}
+        <p>Showing results for: &quot;{query}&quot;</p>{' '}
+        {/* Display the search keyword */}
       </header>
 
       <main className={styles.mainContent}>
@@ -60,12 +63,13 @@ export const SearchPage: React.FC = () => {
               <ProductCard
                 key={product.id} // Use product ID as key
                 {...product} // Spread product properties as props for ProductCard
-                onAddToCart={() => addToCart(product.id)} // Function to add product to the cart
+                onAddToCart={() => addToCart(product)} // Function to add product to the cart
+                onAddToWishList={() => addToWishList(product)} // Empty function for adding to wishlist
               />
             ))
           ) : (
             // If no products match, display a message
-            <p>No products found for "{query}"</p>
+            <p>No products found for &quot;{query}&quot;</p>
           )}
         </div>
       </main>

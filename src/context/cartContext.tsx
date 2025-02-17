@@ -117,7 +117,11 @@ interface CartContextProps {
 const CartContext = createContext<CartContextProps | undefined>(undefined);
 
 // CartProvider is a component that provides cart data and functions to the application
-export const CartProvider: React.FC = ({ children }) => {
+interface CartProviderProps {
+  children: React.ReactNode;
+}
+
+export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   // Use useReducer to manage cart state
   const [state, dispatch] = useReducer(cartReducer, { items: [] });
 
