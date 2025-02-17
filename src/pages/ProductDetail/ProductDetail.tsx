@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'; // For taking ID from URL
 import useFetchProductDetail from '@/hooks/useFethcProductDetail';
 import styles from './ProductDetail.module.scss'; // Import SCSS module
 
-const ProductDetail = () => {
+const ProductDetail: React.FC = () => {
   // Getting product ID from URL
   const { id } = useParams<{ id: string }>();
 

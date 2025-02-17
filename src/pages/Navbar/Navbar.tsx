@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import { useCart } from '../../context/cartContext'; // Get data from CartContext
 import { useWishList } from '../../context/wishListContext'; // Get data from WishListContext
 import { useSearch } from '../../context/searchContext'; // Get data from SearchContext
@@ -13,11 +13,11 @@ export const Navbar: React.FC = () => {
   const { wishList } = useWishList();
   // Get searchQuery and setSearchQuery function from SearchContext
   const { searchQuery, setSearchQuery } = useSearch();
-  const [isCartOpen, setIsCartOpen] = useState(false); // State to manage whether the cart dropdown is open or not
+  // const [isCartOpen, setIsCartOpen] = useState(false); // State to manage whether the cart dropdown is open or not
   const navigate = useNavigate(); // Function to navigate to other pages
 
   // Function to toggle the open/close status of the cart dropdown
-  const toggleCart = () => setIsCartOpen((prev) => !prev);
+  // const toggleCart = () => setIsCartOpen((prev) => !prev);
 
   // Function to navigate to the Checkout page
   const goToCheckout = () => {
@@ -97,7 +97,7 @@ export const Navbar: React.FC = () => {
       </div>
 
       {/* Cart dropdown, only appears if isCartOpen is true */}
-      {isCartOpen && (
+      {/* {isCartOpen && (
         <div className={styles.cartDropdown}>
           {cart.length === 0 ? (
             <p>Your cart is empty</p> // Display message if the cart is empty
@@ -108,15 +108,15 @@ export const Navbar: React.FC = () => {
                 <div>
                   <p>{item.title}</p>
                   <p>
-                    1 x ${parseFloat(item.price).toFixed(2)}{' '}
-                    {/* Display item price */}
-                  </p>
+                    1 x ${parseFloat(item.price).toFixed(2)}{' '} */}
+      {/* Display item price with 2 decimal places */}
+      {/* </p>
                 </div>
               </div>
             ))
           )}
         </div>
-      )}
+      )} */}
     </nav>
   );
 };

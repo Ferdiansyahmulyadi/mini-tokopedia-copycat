@@ -45,7 +45,7 @@ const useFetchProductsWithPagination = (page: number, limit: number) => {
     queryKey: ['products', page, limit], // queryKey is used to differentiate queries based on page and limit
     queryFn: () => fetchProducts(page, limit), // queryFn is the function that will be called to fetch data
     staleTime: 1000 * 60 * 5, // Data is considered fresh for 5 minutes before being refetched
-    cacheTime: 1000 * 60 * 10, // Data will remain in cache for 10 minutes before being removed
+    // cacheTime: 1000 * 60 * 10, // Data will remain in cache for 10 minutes before being removed
   });
 
   // Return the product data, loading status, and error message to be used in other components
