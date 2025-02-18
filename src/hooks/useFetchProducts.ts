@@ -1,11 +1,12 @@
 // hooks/useFetchProducts.ts
 
 // Import useState and useEffect from React for state and side effects
-import axios from 'axios';
+// import axios from 'axios';
 import { useState, useEffect } from 'react';
-
+import { api } from '@/services/api';
 // Get the API URL from environment variable (VITE_API_URL)
-const apiUrl = import.meta.env.VITE_API_URL;
+// const apiUrl = import.meta.env.VITE_SUPABASE_URL;
+// const apiKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 // Import axios to make HTTP requests
 
@@ -36,7 +37,8 @@ const useFetchProductsWithAxios = () => {
     const fetchProducts = async () => {
       try {
         // Fetch data from the API using Axios
-        const response = await axios.get(`${apiUrl}/products`);
+        // const response = await axios.get(`${apiUrl}/products`);
+        const response = await api.get(`/rest/v1/mini-tokopedia-main-table`);
 
         // Store the product data in the products state
         setProducts(response.data);
