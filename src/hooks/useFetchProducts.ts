@@ -18,6 +18,8 @@ interface Product {
   category: string;
   description: string;
   image: string;
+  rate: number;
+  count: number;
 }
 
 // Custom hook to fetch product data from API using Axios
@@ -38,7 +40,7 @@ const useFetchProductsWithAxios = () => {
       try {
         // Fetch data from the API using Axios
         // const response = await axios.get(`${apiUrl}/products`);
-        const response = await api.get(`/rest/v1/mini-tokopedia-main-table`);
+        const response = await api.get(`/rest/v1/products`);
 
         // Store the product data in the products state
         setProducts(response.data);

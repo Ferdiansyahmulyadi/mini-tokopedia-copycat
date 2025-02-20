@@ -4,7 +4,9 @@
 import { useQuery } from '@tanstack/react-query';
 
 // Get the API URL from environment variable (e.g., in the .env file)
-const apiUrl = import.meta.env.VITE_API_URL;
+const apiUrlFakeStore = import.meta.env.VITE_API_URL;
+// const apiUrl = import.meta.env.VITE_SUPABASE_URL;
+// const apiKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 // Define the data type for product to ensure type safety in TypeScript
 interface Product {
@@ -14,22 +16,30 @@ interface Product {
   category: string; // Product category
   description: string; // Product description
   image: string; // Product image URL
+  rate: number;
+  count: number;
 }
 
-// Async function to fetch product detail based on ID from the API
 const fetchProductDetail = async (id: number): Promise<Product> => {
-  // Send request to the API using the product ID as a parameter in the URL
-  const response = await fetch(`${apiUrl}/products/${id}`);
+  // Melakukan request ke API dengan menggunakan ID produk sebagai parameter di URL
+  // const response = await fetch(`${apiUrl}/rest/v1/products?id=eq.${id}`, {
+  //   headers: {
+  //     apikey: apiKey,
+  //     Authorization: `Bearer ${apiKey}`,
+  //     'Content-Type': 'application/json',
+  //   },
+  // });
+  const response = await fetch(`${apiUrlFakeStore}/products/${id}`);
 
-  // Log to console for debugging
-  console.log(`Fetching product detail for ID: ${id}`);
+  // Menampilkan log di console untuk debugging
+  // console.log(`Fetching product detail for ID: ${id}`);
 
-  // If the API response is not OK, throw an error to be handled by React Query
+  // Jika response dari API tidak OK, lempar error agar bisa ditangani oleh React Query
   if (!response.ok) {
     throw new Error('Failed to fetch product detail');
   }
 
-  // Return the product data in JSON format
+  // Mengembalikan data produk dalam format JSON
   return response.json();
 };
 

@@ -1,9 +1,8 @@
-import React from 'react';
 import { useParams } from 'react-router-dom'; // For taking ID from URL
 import useFetchProductDetail from '@/hooks/useFethcProductDetail';
 import styles from './ProductDetail.module.scss'; // Import SCSS module
 
-const ProductDetail: React.FC = () => {
+const ProductDetail = () => {
   // Getting product ID from URL
   const { id } = useParams<{ id: string }>();
 
@@ -23,6 +22,8 @@ const ProductDetail: React.FC = () => {
           <p>{product.description}</p>
           <p className={styles.price}>${product.price}</p>
           <p className={styles.category}>Category: {product.category}</p>
+          <p>Rating: {product.rate}</p>
+          <p>{product.count} people bought this product.</p>
         </div>
       )}
     </div>
